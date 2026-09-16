@@ -14,7 +14,10 @@ class Application(App):
         self.selected_item_info = {}
         super().__init__(*args, **kwargs)
 
-    BINDINGS = [("q", "quit", "Quit")]
+    BINDINGS = [
+        ('q', "quit", "Quit"),
+        ('h', "toggle_hidden", "Show Hidden")
+    ]
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -41,3 +44,9 @@ class Application(App):
     def refresh_info_panels(self):
         for panel in self.query(InfoPanel):
             panel.update_content()
+    def refresh_file_viewers(self):
+        for viewr in self.query(FileViewer):
+            viewr.update_content()
+    def action_toggle_hidden(self) -> None:
+        self.show_hidden = not self.show_hidden
+        self.refresh_file_viewers()

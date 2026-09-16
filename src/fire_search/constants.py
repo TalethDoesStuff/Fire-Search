@@ -76,3 +76,8 @@ ICONS = {
 }
 
 PROJECT_NAME = "Fire Search"
+
+FOLDER_ICON="󰉋"
+
+HIDDEN_DIR = "󱞞"
+HIDDEN_FILE = "󰘓"

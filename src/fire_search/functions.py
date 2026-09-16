@@ -5,6 +5,7 @@ from fire_search.constants import (
     ICONS,
     HIDDEN_DIR,
     HIDDEN_FILE,
+    FOLDER_ICON,
 )
 
 # === Other Imports ===
@@ -30,7 +31,8 @@ def get_icon(path: Path) -> str:
             return HIDDEN_DIR
         else:
             return HIDDEN_FILE
-
+    if path.is_dir():
+        return FOLDER_ICON
     for mime_type, extensions in MIMETYPES.items():
         if extension in extensions:
             return ICONS.get(mime_type, MISSING_ICON)

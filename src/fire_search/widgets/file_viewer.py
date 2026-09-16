@@ -41,7 +41,7 @@ class FileViewer(OptionList):
 
             # If dir then add 󰉋 and / else searh mimetype and get icon
             if entry.is_dir():
-                self.add_option(Option(f"󰉋  {entry.name}/", id=str(entry)))
+                self.add_option(Option(f"{get_icon(entry)}  {entry.name}/", id=str(entry)))
             else:
                 self.add_option(
                     Option(f"{get_icon(entry)} {entry.name}", id=str(entry))
