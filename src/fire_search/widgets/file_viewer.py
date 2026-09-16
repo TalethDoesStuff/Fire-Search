@@ -8,7 +8,6 @@ from fire_search.functions import get_icon, get_mimetype, open_file
 
 # === Other Imports ===
 from pathlib import Path
-import os
 
 
 class FileViewer(OptionList):
@@ -76,8 +75,7 @@ class FileViewer(OptionList):
         option_id = event.option.id
 
         if option_id == "..":
-            os.chdir(Path.cwd().parent)
-            self.update_content()
+            self.app.move_to(Path.cwd().parent)
             return
 
         if option_id == "error":
@@ -86,10 +84,6 @@ class FileViewer(OptionList):
         path = Path(option_id)
 
         if path.is_dir():
-            try:
-                os.chdir(path)
-                self.update_content()
-            except OSError:
-                self.app.title = " Permission Denied! "
+            self.app.move_to(path)
         else:
             open_file(path)

@@ -7,6 +7,9 @@ from textual.containers import Vertical, Horizontal
 from fire_search.widgets.file_viewer import FileViewer
 from fire_search.widgets.info_panel import InfoPanel
 
+# === Other Imports ===
+import os
+
 
 class Application(App):
     def __init__(self, *args, **kwargs):
@@ -50,3 +53,9 @@ class Application(App):
     def action_toggle_hidden(self) -> None:
         self.show_hidden = not self.show_hidden
         self.refresh_file_viewers()
+    def move_to(self, path) -> None:
+        try:
+            os.chdir(path)
+            self.refresh_file_viewers()
+        except PermissionError:
+            self.title = "   Permission Denied!  "
