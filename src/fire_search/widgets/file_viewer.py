@@ -34,6 +34,8 @@ class FileViewer(OptionList):
             return
 
         for entry in entries:
+            if not self.app.search_filter in entry.name:
+                continue
             # Skip this item if show_hidden is not enabled and is this file is hidden
             if entry.name.startswith(".") and not self.app.show_hidden:
                 continue

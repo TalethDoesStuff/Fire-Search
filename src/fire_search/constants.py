@@ -1,3 +1,4 @@
+# Mimetypes and their extentions
 MIMETYPES = {
     "text/plain": ["txt"],
     "text/markdown": ["md", "markdown"],
@@ -40,6 +41,7 @@ MIMETYPES = {
 
 MISSING_ICON = ""
 
+# Icon for each mimetype
 ICONS = {
     "text/plain": "",
     "text/markdown": "",
@@ -75,9 +77,12 @@ ICONS = {
     "application/x-godot-project": "",
 }
 
+# Shown in the title
 PROJECT_NAME = "Fire Search"
 
+# Icon used for folders
 FOLDER_ICON="󰉋"
 
+# Folder and file icon for ALL hidden files and folders
 HIDDEN_DIR = "󱞞"
 HIDDEN_FILE = "󰘓"

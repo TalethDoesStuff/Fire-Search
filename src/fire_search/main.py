@@ -6,6 +6,7 @@ from textual.containers import Vertical, Horizontal
 # === Project Imports ===
 from fire_search.widgets.file_viewer import FileViewer
 from fire_search.widgets.info_panel import InfoPanel
+from fire_search.widgets.search_bar import SearchBar
 
 # === Other Imports ===
 import os
@@ -14,6 +15,7 @@ import os
 class Application(App):
     def __init__(self, *args, **kwargs):
         self.show_hidden = False
+        self.search_filter = ""
         self.selected_item_info = {}
         super().__init__(*args, **kwargs)
 
@@ -33,14 +35,13 @@ class Application(App):
         panel.styles.width = "30%"
         panel.styles.height = "100%"
 
-        action_panel = Static(id="action_panel")
-        action_panel.styles.width = "100%"
-        action_panel.styles.height = "20%"
+        search_bar = SearchBar(id="search_bar")
+        search_bar.styles.width = "100%"
 
-        f = Horizontal(viewer, panel)
-        f.styles.height = "1fr"
+        main_content = Horizontal(viewer, panel)
+        main_content.styles.height = "1fr"
 
-        yield Vertical(f, action_panel)
+        yield Vertical(search_bar, main_content)
 
         yield Footer()
 
