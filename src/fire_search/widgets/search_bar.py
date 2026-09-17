@@ -14,3 +14,6 @@ class SearchBar(Input):
         self.app.search_filter = event.value
         self.app.refresh_file_viewers()
         self.app.refresh_info_panels()
+    
+    def on_mount(self):
+        self.border_title = "Search Bar"

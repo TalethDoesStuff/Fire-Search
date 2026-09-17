@@ -12,6 +12,7 @@ from pathlib import Path
 
 class FileViewer(OptionList):
     def on_mount(self) -> None:
+        self.border_title = "File Viewer"
         self.update_content()
 
     def update_content(self) -> None:

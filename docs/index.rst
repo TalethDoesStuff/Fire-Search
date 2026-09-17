@@ -7,5 +7,4 @@ Fire-Search is a simple file explorer made in Python for the terminal.
    :maxdepth: 2
    :caption: Contents:
 
-   installation
-   usage
+   internals/internals
