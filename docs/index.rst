@@ -18,3 +18,4 @@ Fire Search is written in `python <https://www.python.org>`_ using the `textual 
 
    internals/internals
    todo
+   ai_usage
