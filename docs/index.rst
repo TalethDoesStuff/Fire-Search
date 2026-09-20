@@ -1,5 +1,5 @@
 =================
-Fire Search
+Home
 =================
 
 .. image:: _static/social_preview.png
@@ -18,6 +18,7 @@ Fire Search is written in `python <https://www.python.org>`_ using the `textual 
    :maxdepth: 2
    :caption: Contents:
 
+   self
    internals/internals
    todo
    ai_usage
