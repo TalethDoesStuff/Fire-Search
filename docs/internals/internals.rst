@@ -14,3 +14,9 @@ The internal structer of Fire Search has all the panels communicate through the 
 Each widget communecates to other widgets by running functions in the application class. For example when the 
 file viewer highlights a diffrent item it sets the selected item info varible on the main application and runs the refresh function for
 the infomation panel.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   application

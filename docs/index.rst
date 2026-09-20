@@ -2,6 +2,8 @@
 Fire Search
 =================
 
+.. image:: _static/social_preview.png
+
 Fire Search is a simple file explorer made in Python for the terminal.
 
 Fire Search Dependencies
