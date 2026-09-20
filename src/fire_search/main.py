@@ -10,6 +10,7 @@ from fire_search.widgets.search_bar import SearchBar
 
 # === Other Imports ===
 import os
+from pathlib import Path
 
 
 class Application(App):
@@ -21,7 +22,9 @@ class Application(App):
 
     BINDINGS = [
         ('q', "quit", "Quit"),
-        ('h', "toggle_hidden", "Show Hidden")
+        ('h', "toggle_hidden", "Show Hidden"),
+        ('`', "go_home", "Go Home"),
+        ('/', "go_root", "Go Root")
     ]
 
     def compose(self) -> ComposeResult:
@@ -60,3 +63,7 @@ class Application(App):
             self.refresh_file_viewers()
         except PermissionError:
             self.title = "   Permission Denied!  "
+    def action_go_home(self) -> None:
+        self.move_to(Path.home())
+    def action_go_root(self) -> None:
+        self.move_to(Path.root)
