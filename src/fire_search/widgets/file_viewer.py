@@ -49,20 +49,23 @@ class FileViewer(OptionList):
                     Option(f"{get_icon(entry)} {entry.name}", id=str(entry))
                 )
         # Update the title to this dir
-        self.app.title = f"{PROJECT_NAME} — {Path.cwd()}/"
+        current_path = Path.cwd()
+        suffix = "" if current_path == current_path.parent else "/"
+        self.app.title = f"{PROJECT_NAME} — {current_path}{suffix}"
 
     # Update info panel and title when highlighted item
     def on_option_list_option_highlighted(
         self, event: OptionList.OptionHighlighted
     ) -> None:
-
-        # Get selected option infomation
         option = event.option
         option_id = event.option.id
         path = Path(option_id)
 
+        # Add / after directories
+        display_path = f"{path}/" if path.is_dir() else str(path)
+
         # Set app title
-        self.app.title = f"{PROJECT_NAME} — {Path.cwd()}/{option.prompt[2:]}"
+        self.app.title = f"{PROJECT_NAME} — {display_path}"
 
         # Update selected info in app
         info = self.app.selected_item_info

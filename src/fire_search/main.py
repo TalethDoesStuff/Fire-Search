@@ -24,7 +24,8 @@ class Application(App):
         ('q', "quit", "Quit"),
         ('h', "toggle_hidden", "Show Hidden"),
         ('`', "go_home", "Go Home"),
-        ('/', "go_root", "Go Root")
+        ('/', "go_root", "Go Root"),
+        ('u', "go_up", "Go Up")
     ]
 
     def compose(self) -> ComposeResult:
@@ -49,21 +50,36 @@ class Application(App):
         yield Footer()
 
     def refresh_info_panels(self):
+        """Updates the infomation panel(s)"""
         for panel in self.query(InfoPanel):
             panel.update_content()
+
     def refresh_file_viewers(self):
+        """Updates the file viewer(s)"""
         for viewr in self.query(FileViewer):
             viewr.update_content()
+    
     def action_toggle_hidden(self) -> None:
+        """Toggles the visibility of hidden files"""
         self.show_hidden = not self.show_hidden
         self.refresh_file_viewers()
+    
     def move_to(self, path) -> None:
+        """Moves to a folder/dir"""
         try:
             os.chdir(path)
             self.refresh_file_viewers()
         except PermissionError:
             self.title = "   Permission Denied!  "
     def action_go_home(self) -> None:
+        """Go to the home directory"""
         self.move_to(Path.home())
     def action_go_root(self) -> None:
-        self.move_to(Path.root)
+        """Go to the root directory"""
+        self.move_to(Path(Path.cwd().anchor))
+    def action_go_up(self) -> None:
+        """Goes up one dir"""
+        try:
+            self.move_to(Path.cwd().parent)
+        except:
+            self.title = "Cannot go up any further"
