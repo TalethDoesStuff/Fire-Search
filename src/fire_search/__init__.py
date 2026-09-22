@@ -3,6 +3,5 @@ from pathlib import Path
 
 
 def main() -> None:
-    print(Path.cwd())
     app = Application()
     app.run()
