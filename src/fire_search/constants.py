@@ -86,3 +86,14 @@ FOLDER_ICON="󰉋"
 # Folder and file icon for ALL hidden files and folders
 HIDDEN_DIR = "󱞞"
 HIDDEN_FILE = "󰘓"
+
+HELP_MESSAGE = """Fire Search (FIre SEarch -> FISE)
+fise [options] [location]
+
+Options:
+-h --help | displays this menu
+-H --show-hidden | shows hidden files by default (Not implemented)
+
+Credits:
+@TalethDoesStuff
+"""
