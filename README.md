@@ -3,3 +3,9 @@
 A Simple file explorer made in python for the terminal
 
 <img src="https://app-assets.readthedocs.org/images/favicon.f231b6609d0b.png" alt="ReadTheDocs Icon" width="16" height="16"> [ReadTheDocs](https://fire-search.readthedocs.io/en/latest/)
+
+> # Dependecies
+> **Nerd font:**
+> A nerdfont is required to have filetype icons show.
+> install one and set it as your terminal font
+> [Download one here](https://www.nerdfonts.com/font-downloads)
