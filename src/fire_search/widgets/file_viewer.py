@@ -4,7 +4,7 @@ from textual.widgets.option_list import Option
 
 # === Project Imports ===
 from fire_search.constants import ICONS, MIMETYPES, MISSING_ICON, PROJECT_NAME
-from fire_search.functions import get_icon, get_mimetype, open_file
+from fire_search.functions import get_icon, get_mimetype
 
 # === Other Imports ===
 from pathlib import Path
@@ -92,4 +92,4 @@ class FileViewer(OptionList):
         if path.is_dir():
             self.app.move_to(path)
         else:
-            open_file(path)
+            self.app.open_file(path)

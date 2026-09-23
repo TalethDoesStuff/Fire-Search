@@ -9,7 +9,7 @@ from fire_search.widgets.info_panel import InfoPanel
 from fire_search.widgets.search_bar import SearchBar
 
 # === Other Imports ===
-import os
+import os, sys, subprocess
 from pathlib import Path
 
 
@@ -83,3 +83,35 @@ class Application(App):
             self.move_to(Path.cwd().parent)
         except:
             self.title = "Cannot go up any further"
+
+    def open_file(self, path):
+        """Open a file"""
+
+        if sys.stdin.isatty():
+            with self.suspend():
+                subprocess.run(["vim", str(path)])
+
+            return
+
+        if sys.platform == "win32":
+            os.startfile(path)
+
+        elif sys.platform == "darwin":
+            result = subprocess.run(
+                ["open", str(path)],
+                capture_output=True,
+                text=True,
+            )
+
+            if result.stderr:
+                self.title = "Failed to open file!"
+
+        else:
+            result = subprocess.run(
+                ["xdg-open", str(path)],
+                capture_output=True,
+                text=True,
+            )
+
+            if result.stderr:
+                self.title = "Failed to open file!"

@@ -1,5 +1,7 @@
 TODO
 ==================
 
-* Replace all direct variable assignments followed by refresh calls with setter functions.
 * Document all functions in the `Widgets` module.
+* Make the mimetype use the python mimetype library
+* Add all the icons
+* Add support for diffrent terminal text editors

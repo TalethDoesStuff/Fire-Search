@@ -13,16 +13,6 @@ from pathlib import Path
 import os, sys, subprocess
 
 
-# Uses the operating system's tool to open a file
-def open_file(path):
-    if sys.platform == "win32":
-        os.startfile(path)
-    elif sys.platform == "darwin":
-        subprocess.Popen(["open", path])
-    else:
-        subprocess.Popen(["xdg-open", path])
-
-
 # Returns a char of the nerd font icon to use
 def get_icon(path: Path) -> str:
     extension = path.suffix.lower().lstrip(".")
