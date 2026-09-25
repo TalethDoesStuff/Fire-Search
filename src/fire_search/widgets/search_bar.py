@@ -3,7 +3,6 @@ from textual.app import ComposeResult
 from textual.widgets import Input, Label
 from textual import on
 
-
 class SearchBar(Input):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

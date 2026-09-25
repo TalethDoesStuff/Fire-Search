@@ -12,7 +12,6 @@ from fire_search.widgets.search_bar import SearchBar
 import os, sys, subprocess
 from pathlib import Path
 
-
 class Application(App):
     def __init__(self, *args, **kwargs):
         self.show_hidden = False
